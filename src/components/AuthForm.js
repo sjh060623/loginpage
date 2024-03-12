@@ -28,7 +28,10 @@ const AuthForm = () => {
           password
         );
       } else {
-        data = await authService.signInWithEmailAndPassword(`${email}@cg.com`, password);
+        data = await authService.signInWithEmailAndPassword(
+          `${email}@cg.com`,
+          password
+        );
       }
       console.log(data);
     } catch (error) {
@@ -63,18 +66,12 @@ const AuthForm = () => {
           value={newAccount ? "계정 만들기" : "로그인"}
         />
         {error && <p className="authError">{error}</p>}
-        {/*
-<span onClick={toggleAccount} className="authSwitch">
-        {newAccount ? "로그인" : "계정 만들기"}
-      </span>
-  */}
 
-
+        <span onClick={toggleAccount} className="authSwitch">
+          {newAccount ? "로그인" : "계정 만들기"}
+        </span>
       </form>
-
     </>
   );
 };
 export default AuthForm;
-
-
